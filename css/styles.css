@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #d8faff;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#display {
+  height: 300px;
+  width: 300px;
+  margin: 20px auto;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+}
+
+.clear-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button,
+input {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px 3px 15px 0;
+}
+
+#color-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.color-btn {
+  cursor: pointer;
+  display: flex;
+}
+
+#red {
+  background-color: #e32636;
+}
+#yellow {
+  background-color: #fde910;
+}
+#green {
+  background-color: #138808;
+}
+#blue {
+  background-color: #1560bd;
+}
+
+#input-text {
+  width: 65%;
+  margin-right: 8px;
+}
+
+.circle {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.square {
+  width: 240px;
+  height: 240px;
+  background-color: #000;
+}
+
+.circle,
+.square {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.color-square {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid;
+}
+
+.with-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  overflow: hidden;
+}
