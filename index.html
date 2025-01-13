@@ -1,307 +1,83 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <title>Вкусно и Просто - Лучшие рецепты</title>
-  </head>
-  <body>
-    <header>
-      <h1>Вкусно и Просто</h1>
-      <p>Ваш гид по миру вкусной и простой еды!</p>
-    </header>
-
-    <nav>
-      <a href="#recipes">Рецепты</a>
-      <a href="#root">Меню доставки</a>
-      <a href="#promo">Приложение</a>
-      <div>
-        <div class="trigger" id="trigger">
-          Войти
-          <div class="login-modal" id="login-modal">
-            <h2 id="form-title">Вход</h2>
-            <form id="auth-form">
-              <div>
-                <input
-                  type="text"
-                  id="email"
-                  placeholder="Имя пользователя или email"
-                />
-                <div class="error-message" id="email-error">
-                  Введите корректный email
-                </div>
-              </div>
-              <div>
-                <input type="password" id="password" placeholder="Пароль" />
-                <div class="error-message" id="password-error">
-                  Пароль должен быть длиной не менее 6 символов
-                </div>
-              </div>
-              <button type="submit">Войти</button>
-            </form>
-            <div class="success" id="success-message">
-              Форма успешно отправлена!
-            </div>
-            <div class="switch-link" id="switch-link">Зарегистрироваться</div>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container" id="recipes">
-      <h2>Популярные рецепты</h2>
-      <div class="slider">
-        <div class="slides">
-          <div class="slide">
-            <h3>Шоколадный торт</h3>
-            <div class="slide__btn">
-              <img
-                src="https://rud.ua/uploads/under_recipe/maxresdefault%20(4).jpg"
-                alt="Шоколадный торт"
-              />
-              <button class="menu-button">⋮</button>
-              <ul class="menu hidden">
-                <li class="menu-item" onclick="openModal()">Добавить в меню</li>
-              </ul>
-            </div>
-            <p>
-              <strong>Ингредиенты:</strong> мука, сахар, какао, яйца, масло.
-            </p>
-            <p><strong>Время приготовления:</strong> 1 час</p>
-            <div class="cta">
-              <a href="https://andychef.ru/recipes/choco-123/" target="_blank">
-                <button>Читать рецепт</button>
-              </a>
-            </div>
-          </div>
-          <div class="slide">
-            <h3>Куриный суп</h3>
-            <div class="slide__btn">
-              <img
-                src="https://ferma-m2.ru/images/shop/recipe_image/crop__3_1.jpg"
-                alt="Куриный суп"
-              />
-              <button class="menu-button">⋮</button>
-              <ul class="menu hidden">
-                <li class="menu-item" onclick="openModal()">Добавить в меню</li>
-              </ul>
-            </div>
-            <p>
-              <strong>Ингредиенты:</strong> курица, картофель, морковь, лук.
-            </p>
-            <p><strong>Время приготовления:</strong> 40 минут</p>
-            <div class="cta">
-              <a
-                href="https://eda.ru/recepty/supy/kurinyy-sup-s-vermishelyu-57997"
-                target="_blank"
-              >
-                <button>Читать рецепт</button>
-              </a>
-            </div>
-          </div>
-          <div class="slide">
-            <h3>Салат Цезарь</h3>
-            <div class="slide__btn">
-              <img
-                src="https://s1.eda.ru/StaticContent/Photos/120131082454/161109234550/p_O.jpg"
-                alt="Салат Цезарь"
-              />
-              <button class="menu-button">⋮</button>
-              <ul class="menu hidden">
-                <li class="menu-item" onclick="openModal()">Добавить в меню</li>
-              </ul>
-            </div>
-            <p>
-              <strong>Ингредиенты:</strong> курица, салат, сыр, сухарики, соус.
-            </p>
-            <p><strong>Время приготовления:</strong> 20 минут</p>
-            <div class="cta">
-              <a
-                href="https://www.russianfood.com/recipes/bytype/?fid=721"
-                target="_blank"
-              >
-                <button>Читать рецепт</button>
-              </a>
-            </div>
-          </div>
-          <div class="slide">
-            <h3>Омлет с овощами</h3>
-            <div class="slide__btn">
-              <img
-                src="https://aif-s3.aif.ru/images/005/635/67430b82d0cfd6a37884a0290317d419.jpg"
-                alt="Омлет с овощами"
-              />
-              <button class="menu-button">⋮</button>
-              <ul class="menu hidden">
-                <li class="menu-item" onclick="openModal()">Добавить в меню</li>
-              </ul>
-            </div>
-            <p><strong>Ингредиенты:</strong> яйца, помидоры, перец, зелень.</p>
-            <p><strong>Время приготовления:</strong> 15 минут</p>
-            <div class="cta">
-              <a
-                href="https://1000.menu/cooking/6308-omlet-s-ovoshchami-i-syrom-na-skovorode?ysclid=m5tra0aaol755021531"
-                target="_blank"
-              >
-                <button>Читать рецепт</button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="controls">
-          <button id="prev">&#10094;</button>
-          <button id="next">&#10095;</button>
-        </div>
-      </div>
-    </div>
-    <div id="modal" class="modal hidden">
-      <div class="modal-content">
-        <p>
-          Для этого требуется зарегистрироваться. По статистике, это занимает
-          всего 25 секунд!
-        </p>
-        <button class="modal__btn-login">Войти</button>
-        <button class="modal__btn-register">Регистрация</button>
-        <button class="modal__btn-later">В другой раз</button>
-      </div>
-    </div>
-
-    <div id="root">
-      <h2 class="root_title">Меню доставки</h2>
-      <div class="navigation">
-        <button class="active" onclick="switchMenu('original')">
-          Оригинальное
-        </button>
-        <button onclick="switchMenu('family')">Семейное</button>
-        <button onclick="switchMenu('balance')">Баланс</button>
-      </div>
-      <div class="carousel">
-        <div class="arrow left" onclick="prevSlide()">&#9664;</div>
-        <div class="carousel-content" id="carousel-content">
-          <div class="card">
-            <img
-              src="https://storage.yandexcloud.net/stor.chefmarket.ru/spagetti-karbonara-chao-italiya4__1245x700.jpeg"
-              alt="Блюдо 1"
-            />
-            <h2>Спагетти карбонара «Чао Италия»</h2>
-            <div class="info">
-              <span>Легко</span>
-              <span>20 минут</span>
-              <span>910 г</span>
-            </div>
-            <button class="btn">Смотреть меню</button>
-          </div>
-          <div class="card">
-            <img
-              src="https://storage.yandexcloud.net/stor.chefmarket.ru/tort-medovik-kak-v-detstve-s-nejnym-zavarnym-kremom__1245x700.jpeg"
-              alt="Блюдо 2"
-            />
-            <h2>Торт «Медовик как в детстве» с нежным заварным кремом</h2>
-            <div class="info">
-              <span>Легко</span>
-              <span>До 20 минут</span>
-            </div>
-            <button class="btn">Смотреть меню</button>
-          </div>
-        </div>
-        <div class="arrow right" onclick="nextSlide()">&#9654;</div>
-      </div>
-    </div>
-    <div class="promo-container" id="promo">
-      <div class="promo-content">
-        <h1>С приложением — ещё удобнее!</h1>
-        <ul>
-          <li>Оформляйте заказы одним кликом</li>
-          <li>Скидка 10% по подписке</li>
-          <li>И кешбэк до 5%</li>
-          <li>Изучайте пошаговые рецепты</li>
-          <li>Готовьте по встроенному таймеру</li>
-          <li>Легко управляйте заказами и подпиской</li>
-          <li>Оценивайте блюда и качество сервиса</li>
-        </ul>
-        <div class="app-links">
-          <a href="https://play.google.com" target="_blank">
-            <img
-              src="./css/svg/google-play.svg"
-              alt="Google Play"
-              id="google-play"
-            />
-          </a>
-          <a href="https://www.apple.com/app-store/" target="_blank">
-            <img src="./css/svg/app-store.svg" alt="App Store" id="app-store" />
-          </a>
-          <a href="https://apps.rustore.ru/" target="_blank">
-            <img
-              src="./css/svg/rustore-svgrepo-com.svg"
-              alt="RuStore"
-              id="rusto"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="phone">
-        <img src="./css/image/app.png" alt="App Screenshot" />
-      </div>
-    </div>
-    <div id="popup-window" class="popup-window">
-      <div class="popup-window-content">
-        <span class="close-btn">&times;</span>
-        <h2>Не спешите уходить!</h2>
-        <p>Посмотрите 60 блюд-новинок</p>
-        <button id="not-interested" class="button-style">НЕ ИНТЕРЕСНО</button>
-        <button id="view-more" class="button-style button-green">
-          ПОСМОТРЕТЬ
-        </button>
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="footer-container">
-        <!-- Social Media Section -->
-        <div class="social-media">
-          <span class="footer-text">Мы в социальных сетях</span>
-          <div class="icons">
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              class="footer-link"
-            >
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a href="https://telegram.org/" target="_blank" class="footer-link">
-              <i class="fa-brands fa-telegram"></i>
-            </a>
-            <a href="https://vk.com/" target="_blank" class="footer-link">
-              <i class="fa-brands fa-vk"></i>
-            </a>
-            <a href="https://ok.ru/" target="_blank" class="footer-link">
-              <i class="fa-brands fa-odnoklassniki"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Subscription Section -->
-        <div class="subscribe">
-          <span class="footer-text"
-            >Подпишитесь и получайте рецепты изумительно вкусных блюд!</span
-          >
-          <form class="subscribe-form">
-            <input type="email" placeholder="ВВЕДИТЕ ВАШ E-MAIL" required />
-            <button type="submit">ПОДПИСАТЬСЯ</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Footer Bottom Section -->
-      <div class="footer-bottom">
-        <p>&copy; 2025 Вкусно и Просто. Все права защищены.</p>
-        <a href="#">Карта сайта</a>
-      </div>
-    </footer>
-    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <script
       src="https://kit.fontawesome.com/c2a7e21e81.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app-main">
+        <header class="app-header">
+          <img
+            src="./assets/img/bars.svg"
+            alt="Логотип ToDo"
+            class="header-logo"
+          />
+          <h1 class="header-title">ToDo</h1>
+        </header>
+        <div class="app-dashboard">
+          <ul class="todo-categories">
+            <li class="todo-categories-btn todo-categories-btn__active">Все</li>
+            <li class="todo-categories-btn">Завершенные</li>
+            <li class="todo-categories-btn">Не завершенные</li>
+          </ul>
+          <ul class="todo-list">
+            <li class="todo">
+              <span class="todo-border"></span>
+              <div class="todo-part">
+                <div class="todo-toggle__outer"></div>
+                <h4 class="todo-title">Закончить проект</h4>
+              </div>
+              <div class="todo-part">
+                <i class="fa-solid fa-trash-can todo-delete"></i>
+              </div>
+            </li>
+
+            <li class="todo">
+              <span class="todo-border"></span>
+              <div class="todo-part">
+                <div class="todo-toggle__outer"></div>
+                <h4 class="todo-title">Приготовить ужин</h4>
+              </div>
+              <div class="todo-part">
+                <i class="fa-solid fa-trash-can todo-delete"></i>
+              </div>
+            </li>
+
+            <li class="todo todo__completed">
+              <span class="todo-border"></span>
+              <div class="todo-part">
+                <div class="todo-toggle__outer">
+                  <div class="todo-toggle__inner"></div>
+                </div>
+                <h4 class="todo-title">Посмотреть серию сериала</h4>
+              </div>
+              <div class="todo-part">
+                <i class="fa-solid fa-trash-can todo-delete"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <footer class="app-footer">
+          <form action="#" class="form">
+            <input type="text" placeholder="Введите..." class="form-input" />
+            <button class="form-btn">Добавить</button>
+          </form>
+          <button class="footer-btn">&plus;</button>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>
